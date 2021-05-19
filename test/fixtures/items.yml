@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre_id: 1
+  name: MyString
+  image_id: MyString
+  introduction: MyText
+  excluding_tax_price: 1
+  is_active: false
+  created_at: 2021-05-19 02:12:12
+  updated_at: 2021-05-19 02:12:12
+
+two:
+  genre_id: 1
+  name: MyString
+  image_id: MyString
+  introduction: MyText
+  excluding_tax_price: 1
+  is_active: false
+  created_at: 2021-05-19 02:12:12
+  updated_at: 2021-05-19 02:12:12
