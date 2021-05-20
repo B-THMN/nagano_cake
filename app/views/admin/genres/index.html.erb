@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -30,7 +31,7 @@
           <% @genres.each do |genre| %>
           <tr>
             <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre) %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre),class: 'btn btn-success' %></td>
           </tr>
           <% end %>
         </tbody>
@@ -38,3 +39,4 @@
     </div>
   </div>
 </div>
+
