@@ -25,7 +25,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
-    get 'items/top'
     get 'items/about'
     resources :items, only: [:index, :show]
     delete 'cart_items/destroy_all'
