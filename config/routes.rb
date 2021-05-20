@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'public/items#top'
 
   devise_for :customers, controllers: {
   sessions:      'customers/sessions',
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
-    get 'items/top'
     get 'items/about'
     resources :items, only: [:index, :show]
     delete 'cart_items/destroy_all'

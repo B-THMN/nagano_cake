@@ -1,4 +1,4 @@
-  <main>
+<main>
    <h2>商品一覧</h2>
     <table class="table table-hover table-inverse">
       <thead>
@@ -10,17 +10,17 @@
           <th>ステータス</th>
         </tr>
       </thead>
-    
       <tbody>
         <% @items.each do |item|%>
           <tr>
             <td><%= item.id %></td>
             <td><%= item.name %></td>
             <td><%= item.excluding_tax_price %></td>
-            <td><%= item.genre_id %></td>
+            <td><%= item.genre.name %></td>
             <td><%= item.is_active %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+</main>
 </main>
