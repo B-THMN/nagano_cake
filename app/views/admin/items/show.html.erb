@@ -1,6 +1,5 @@
 <h2>商品詳細</h2>
 <main>
-  <% @items.each do |item| %>
 <div class="item-image">
 <%= attachment_image_tag(@item, :image, size: "300x200", fallback: "no_image.jpg") %>
 </div>
@@ -13,5 +12,4 @@
 <th>販売ステータス<%= item.is_active %></th>
 </tr>
 </table>
-<% end %>
 </main>

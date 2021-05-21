@@ -1,6 +1,0 @@
-<div class="form-group">商品画像<%= f.attachment_field :image %></div>
-<div class="form-group">商品名<%= f.text_field :name %></div>
-<div class="form-group">商品説明<%= f.text_area :introduction %></div>
-<div class="form-group">ジャンル<%= f.select :genre_id, [["ケーキ", "ケーキ"], ["プリン", "プリン"], ["焼き菓子", "焼き菓子"], ["キャンディ", "キャンディ"]], include_blank: "--選択して下さい--" %></div>
-<div class="form-group">税抜価格<%= f.text_field :excluding_tax_price %>円</div>
-<div class="form-group">販売ステータス<%= f.check_box :is_active,  { checked: true }, true, false %>販売中</div>
