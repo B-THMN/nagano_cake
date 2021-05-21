@@ -17,6 +17,20 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 10%;
+  margin-bottom: 50;
+}
+
 .about {
   text-align: center;
 }

@@ -6,6 +6,7 @@ class Public::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def show
