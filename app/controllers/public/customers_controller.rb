@@ -10,6 +10,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
+    @customer = current_customer
+    if @customer.update(customer_params)
+      # フラッシュメッセージ
+      redirect_to customer_path(@customer)
+    else
+      render :edit
+    end
   end
 
   def unsubscribe

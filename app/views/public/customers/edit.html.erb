@@ -1,2 +1,53 @@
-<h1>Public::Customer#edit</h1>
-<p>Find me in app/views/public/customer/edit.html.erb</p>
+<h4><span style="background-color:#EFEFEF">　会員情報編集　</h4>
+<%= form_with model:@customer, local:true do |f| %>
+  <table>
+    <tr>
+      <td>氏名</td>
+      <td class="form-group">
+        <%= f.text_field :last_name, class: "form-control last_name" %>
+      </td>
+      <td class="form-group">
+        <%= f.text_field :first_name, class: "form-control first_name" %>
+      </td>
+    </tr>
+    <tr>
+      <td>カナ</td>
+      <td class="form-group">
+        <%= f.text_field :last_name_kana, class: "form-control last_name_kana" %>
+      </td>
+      <td class="form-group">
+        <%= f.text_field :first_name_kana, class: "form-control first_name_kana" %>
+      </td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td class="form-group">
+        <%= f.text_field :post_code, class: "form-control post_code" %>
+      </td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td class="form-group">
+        <%= f.text_field :address, class: "form-control address" %>
+      </td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td class="form-group">
+        <%= f.text_field :phone_number, class: "form-control phone_number" %>
+      </td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td class="form-group">
+        <%= f.text_field :email, class: "form-control email" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="form-group">
+        <%= f.submit '編集内容を変更', class: 'btn btn-success' %>
+      </td>
+    </tr>
+  </table>
+
+<% end %>
