@@ -1,7 +1,7 @@
-<h2 class="bg-black-50">　ログイン　</h2>
+<h4><span style="background-color:#EFEFEF">　ログイン　</h4>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h3 class="bg-black-50">　会員の方はこちらからログイン　</h3>
+  <h5><span style="background-color:#EFEFEF">　会員の方はこちらからログイン　</h5>
   <div class="field">
     <%= f.label "メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -12,18 +12,11 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
   <div class="actions">
     <%= f.submit "ログイン", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
-<h3 class="bg-black-50">　会員登録がお済みではない方　</h3>
+<h5><span style="background-color:#EFEFEF">　会員登録がお済みではない方　</h5>
 <%= render "customers/shared/links" %>
 から新規登録を行ってください。
