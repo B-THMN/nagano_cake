@@ -14,7 +14,7 @@
 
 <body>
 
-   
+
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,43 +47,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
-</html>
-  <!--会員ログイン時 -->
-  <% if customer_signed_in? %>
 
-　<!-- litag/箇条書きtag -->
-  <li class="nav-item">
-  <!-- deviseのヘルパーメソッド --><!-- _pathメソッド -->
-  ようこそ、<span class="text-success"><%= current_customer.last_name %></span>さん！</li>　<!-- 名字さん！ -->
-  <li class="nav-item"><%= link_to "マイページ", customer_path(current_customer), class: 'nav-link' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "商品一覧", customer_path(current_customer), class: 'nav-link' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "カート", cart_items_path, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-
-
-  <!--管理者ログイン時 -->
-  <% elsif admin_signed_in? %>
-  <!-- litag/箇条書きtag -->
-  <!-- deviseのヘルパーメソッド --><!-- _pathメソッド -->
-　<li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "会員一覧", admin_customers_path, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "注文履歴一覧", admin_order_path, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link ' %></li> <!-- リンクを含むセクション -->
-
-
-  <!--どちらもログインしていない時 -->
-  <% else %>
-  <!-- litag/箇条書きtag -->
-  <li class="nav-item mr-5 pt-2">
-  <!-- _pathメソッド -->
-  <li class="nav-item" ><%= link_to "About", items_top_path, class: 'nav-link text-white' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "商品一覧", items_path, class: 'nav-link text-white' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "新規登録", customer_registration_path, class: 'nav-link text-white' %></li> <!-- リンクを含むセクション -->
-  <li class="nav-item"><%= link_to "ログイン", customer_session_path, class: 'nav-link text-white' %></li> <!-- リンクを含むセクション -->
-   <!-- 新規登録・ログインのpathは後ほど確認 -->
-
-　<% end %>
 
   </ul>
 
