@@ -1,7 +1,8 @@
-class Public::CustomerController < ApplicationController
+class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    # @user = User.find(current_user.id)
   end
 
   def edit

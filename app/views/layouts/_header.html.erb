@@ -1,36 +1,39 @@
 <header>
   <!--ナビバーの左にタイトル-->
-  <nav class="nav navbar-nav navbar-left title">
-    <% if admin_signed_in? %>
-      <!--管理者がログインしている時-->
-      <%= link_to "NaganoCAKE", admin_homes_top_path %>
-    <% else %>
-      <!--管理者がログインしていない時-->
-      <%= link_to "NaganoCAKE", root_path %>
-    <% end %>
-  </nav>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
-    <ul class="collapse navbar-collapse justify-content-end">
-      <% if customer_signed_in? %>
-        <!--カスタマーがログインしている時 -->
-        <li><%= link_to "マイページ", customer_path(current_customer) %></li>
-        <li><%= link_to "商品一覧", items_path %></li>
-        <li><%= link_to "カート", cart_items_path %></li>
-        <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-      <% elsif admin_signed_in? %>
-        <!-- 管理者がログインしている時 -->
-        <li><%= link_to "商品一覧", admin_items_path %></li>
-        <li><%= link_to "会員一覧", admin_customers_path %></li>
-        <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
-        <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-        <li> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-      <% else %>
-        <!-- ログインしていない時 -->
-        <li><%= link_to "About", items_about_path %></li>
-        <li><%= link_to "商品一覧", items_path %></li>
-        <li><%= link_to "新規登録", new_customer_registration_path %></li>
-        <li><%= link_to "ログイン", new_customer_session_path %></li>
-      <% end %>
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-left navbar-dark bg-dark">
+    <div class="container">
+        <% if admin_signed_in? %>
+          <!--管理者がログインしている時-->
+          <%= link_to "NaganoCAKE", admin_homes_top_path, class: "navbar-brand navbar-mainLogo navbar-left" %>
+        <% else %>
+          <!--管理者がログインしていない時-->
+          <%= link_to "NaganoCAKE", root_path, class: "navbar-brand navbar-mainLogo navbar-left" %>
+        <% end %>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? %>
+            <!--カスタマーがログインしている時 -->
+            <li><%= link_to "マイページ", customer_path(current_customer) %></li>
+            <li><%= link_to "商品一覧", items_path %></li>
+            <li><%= link_to "カート", cart_items_path %></li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+          <% elsif admin_signed_in? %>
+            <!-- 管理者がログインしている時 -->
+            <li><%= link_to "商品一覧", admin_items_path %></li>
+            <li><%= link_to "会員一覧", admin_customers_path %></li>
+            <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
+            <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+            <li> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          <% else %>
+            <!-- ログインしていない時 -->
+            <li><%= link_to "About", items_about_path %></li>
+            <li><%= link_to "商品一覧", items_path %></li>
+            <li><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li><%= link_to "ログイン", new_customer_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>
