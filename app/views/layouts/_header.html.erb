@@ -1,36 +1,88 @@
 <header>
   <!--ナビバーの左にタイトル-->
-  <nav class="navbar navbar-expand-lg navbar-left navbar-dark bg-dark">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #400406;">
+    <!--<div class="container">-->
         <% if admin_signed_in? %>
           <!--管理者がログインしている時-->
-          <%= link_to "NaganoCAKE", admin_homes_top_path, class: "navbar-brand navbar-mainLogo navbar-left" %>
+          <%= link_to "NaganoCAKE", admin_homes_top_path, class: "navbar-brand text-light fas fa-birthday-cake" %>
         <% else %>
           <!--管理者がログインしていない時-->
-          <%= link_to "NaganoCAKE", root_path, class: "navbar-brand navbar-mainLogo navbar-left" %>
+          <%= link_to "NaganoCAKE", root_path, class: "navbar-brand text-light fas fa-birthday-cake" %>
         <% end %>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        <!--右margin.auto-->
+        <ul class="navbar-nav ml-auto list-unstyled p-4">
           <% if customer_signed_in? %>
             <!--カスタマーがログインしている時 -->
-            <li><%= link_to "マイページ", customer_path(current_customer) %></li>
-            <li><%= link_to "商品一覧", items_path %></li>
-            <li><%= link_to "カート", cart_items_path %></li>
-            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <li class="header-name text-light d-flex align-items-center">ようこそ、<%= current_customer.last_name %>さん！</li>
+            <li>
+              <%= link_to customer_path(current_customer) do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >マイページ</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >商品一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to cart_items_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >カート</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >ログアウト</button>
+              <% end %>
+            </li>
           <% elsif admin_signed_in? %>
             <!-- 管理者がログインしている時 -->
-            <li><%= link_to "商品一覧", admin_items_path %></li>
-            <li><%= link_to "会員一覧", admin_customers_path %></li>
-            <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
-            <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-            <li> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li>
+              <%= link_to admin_items_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >商品一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_customers_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >会員一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_orders_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >注文履歴一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_genres_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >ジャンル一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >ログアウト</button>
+              <% end %>
+            </li>
           <% else %>
             <!-- ログインしていない時 -->
-            <li><%= link_to "About", items_about_path %></li>
-            <li><%= link_to "商品一覧", items_path %></li>
-            <li><%= link_to "新規登録", new_customer_registration_path %></li>
-            <li><%= link_to "ログイン", new_customer_session_path %></li>
+            <li>
+              <%= link_to items_about_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >About</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >商品一覧</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_registration_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >新規登録</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_session_path do %>
+                <button class="btn btn-outline-light btn-sm text-light mx-3" >ログイン</button>
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </div>
