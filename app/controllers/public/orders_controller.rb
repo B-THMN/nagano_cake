@@ -3,6 +3,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    @order = Order.new
+    @addresses = Address.all
   end
 
   def show
