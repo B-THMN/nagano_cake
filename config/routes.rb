@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
     resources :customers, only: [:edit, :show, :update]
-    resources :addresses, except: [:show, :new]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
 end
