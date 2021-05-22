@@ -8,7 +8,12 @@ class Customer < ApplicationRecord
   has_many:cart_items, dependent: :destroy
   has_many:addresses, dependent: :destroy
   
+ feature_kana
   def full_name
     self.last_name+ self.first_name
+  # 退会機能
+  # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないようにする制約
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 end

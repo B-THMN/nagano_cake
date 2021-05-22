@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
     end
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
     resources :customers, only: [:edit, :show, :update]
-    resources :addresses, except: [:show, :new]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
 end
