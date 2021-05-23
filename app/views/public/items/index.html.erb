@@ -1,6 +1,7 @@
 <div class="container">
 <div class="row">
-<h2>商品一覧<span>全○件</span></h2>
+
+<h2>商品一覧<span>全<%= @items.count %>件</span></h2>
 <div class="row">
 <% @items.each do |item| %>
 <div class="grid">
