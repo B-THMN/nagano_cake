@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
-    resources :customers, only: [:index, :show, :edit]
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :show, :new, :create, :edit, :update]
     end
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :create, :destroy]
     post 'orders/check'
     get 'orders/complete'
+    # resources :orders, only: [:index, :show, :create, :new]
     resources :orders, only: [:index, :show, :create, :new]
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
