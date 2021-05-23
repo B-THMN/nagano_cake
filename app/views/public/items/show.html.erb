@@ -6,6 +6,7 @@
 <th><%= @item.name %></th>
 <th><%= @item.introduction %></th>
 <th>税込価格<%= purchase_price(@item.excluding_tax_price).to_s(:delimited) %><br>（税抜価格）(¥<%= @item.excluding_tax_price %>)</th>
+
 <% if @item.is_active == false %>
   <th>売り切れ</th>
 <% else %>
