@@ -1,4 +1,5 @@
 
+
 <div class='container'>
   <div class='row'>
     <div class="px-10 mx-auto">
@@ -6,17 +7,47 @@
 
 
 
-<div class="card" style="max-width: 450px;">
-  <div class="d-flex align-items-center justify-content-center" >
-   <img class="card-img" src="/assets/Logo.jpeg" alt="">
-    <div class="card-img-overlay">
-     <p class="text-white">ようこそ、ながのCAKEへ！</br>
-      このサイトは、ケーキ販売のECサイトになります。<br>cd
-      会員でない⽅も商品の閲覧はできますが、<br>
-      購⼊には会員登録が必要になります。</br>
-     </p>
-    </div>
-   </img>
-  </div>
+<div class="home-content">
+
+	<p>ようこそ、ながのCAKEへ！
+	<br>
+	<br>
+	<br>
+
+		このサイトは、ケーキ販売のECサイトになります。<br>
+	   会員でない方も商品の閲覧はできますが、<br>
+	   購入には会員登録が必要になります。<br></p>
 </div>
 
+ <h4>新着商品</h4>
+ <div class="top-new">
+ <% @items.each do |item| %>
+ <table class= "d-inline-block">
+ <tr>
+ 	
+ <td class="image-top-new">
+              <% if admin_signed_in? %>
+                <%= link_to admin_item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, format: 'jpeg', size: "200x150") %>
+                <% end %>
+              <% else %>
+                <%= link_to item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, format: 'jpeg', size: "200x150") %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+
+        </table>
+        <% end %>
+        <p class="text-md-center pb-3">
+          <%= link_to "全ての商品︎", items_path, class: 'btn bt-md' %>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
