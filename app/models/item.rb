@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  include ActionView::Helpers
   belongs_to :genre, foreign_key: "genre_id"
   has_many :customers, through: :cart_items, dependent: :destroy
   has_many :cart_items, dependent: :destroy
