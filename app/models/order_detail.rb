@@ -9,6 +9,6 @@ class OrderDetail < ApplicationRecord
   #validates :quantity, :purchase_price, numericality: { only_integer: true }
   #(数量、購入時価格は数字)
   
-  #enum produciton_status: {"着手不可": 0,"製作待ち": 1,"製作中": 2,"製作完了": 3}
+  enum produciton_status: {"着手不可": 0,"製作待ち": 1,"製作中": 2,"製作完了": 3}
   #(enumで製作ステータスの管理をしている)
 end
