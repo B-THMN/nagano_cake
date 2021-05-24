@@ -61,6 +61,7 @@
                 <button class="btn btn-outline-light btn-sm text-light mx-3" >ログアウト</button>
               <% end %>
             </li>
+            <%= text_field_tag :search, "", placeholder: 'Search' %>
           <% else %>
             <!-- ログインしていない時 -->
             <li>
