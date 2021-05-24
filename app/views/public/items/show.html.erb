@@ -1,18 +1,22 @@
-<div class="container">
-<ul>
-<br><%= attachment_image_tag(@item, :image, size: "300x200", ) %></br>
-<%= form_with model: @cart_item, local:true do |f| %>
-<%= f.hidden_field :item_id, value: @item.id %>
-<td><%= @item.name %></td>
-<td><%= @item.introduction %></td>
-<th>¥<%= tax_price(@item.excluding_tax_price).to_s(:delimited) %>(税込)</th>
-
-<% if @item.is_active == false %>
-  <th>売り切れ</th>
-<% else %>
-  <td><%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
-  <td><%= f.submit "カートに入れる", class: 'btn btn-outline-success btn-sm' %></td>
-<% end %>
-<% end %>
-</ul>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <%= attachment_image_tag(@item, :image, size: "350x350", ) %>
+      </div>
+      <div class="col-lg-8" style="background-color: whitesmoke;">
+        <h2><%= @item.name %></h2>
+        <p><%= @item.introduction %></p>
+        <h4>¥<%= tax_price(@item.excluding_tax_price).to_s(:delimited) %>(税込)</h4>
+        <% if @item.is_active == false %>
+          <h4>売り切れ</h4>
+        <% else %>
+        <%= form_with model: @cart_item, local:true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <td><%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
+          <i class="fas fa-shopping-cart"></i>  
+          <td><%= f.submit "カートに入れる", class: 'btn btn-outline-success btn-sm ' %></td>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>

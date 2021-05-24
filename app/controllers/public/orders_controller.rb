@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   # 注文履歴一覧
   def index
-    @oders = current_customer.orders
+    @orders = current_customer.orders
   end
 
   # 注文情報入力
@@ -12,8 +12,8 @@ class Public::OrdersController < ApplicationController
 
   # 注文履歴詳細
   def show
-    @oder = Oder.find(params[:id])
-    @oder_details = @oder.oder_de
+    @order = Order.find(params[:id])
+    @order_details = @oder.oder_de
   end
 
   # 注文情報確認画面
@@ -27,14 +27,14 @@ class Public::OrdersController < ApplicationController
       @order.postcode = current_customer.post_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
-      
-    # 登録済住所 
+
+    # 登録済住所
     elsif params[:order][:addresses] == "shipping_addresses"
       ship = Addresses.find(params[:order][:address_id])
       @order.postcode = ship.postcode
       @order.address = ship.address
       @order.name = ship.name
-      
+
     # 新しいお届け先
     elsif params[:order][:addresses] == "new_address"
       @address = Address.new(address_params)
@@ -49,7 +49,7 @@ class Public::OrdersController < ApplicationController
   # 注文情報確定
   def create
     # @item = Item.find(params[:item_id])
-    @order = current_customer.order.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to orders_complete_path
   end
@@ -65,7 +65,7 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:postcode, :address, :name, :payment_method)
   end
-  
+
   # 配送先テーブルにtext_field_tagを使ってデータ保存
   def address_params
     params.require(:address).permit(:postcode, :address, :name).merge(customer_id: current_customer.id)
