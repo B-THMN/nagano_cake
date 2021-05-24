@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def index
+    @orders = Order.page(params[:page])
   end
 
   def new
