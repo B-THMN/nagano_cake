@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   # 注文履歴一覧
   def index
+    @oders = current_customer.orders
   end
 
   # 注文情報入力
@@ -11,6 +12,8 @@ class Public::OrdersController < ApplicationController
 
   # 注文履歴詳細
   def show
+    @oder = Oder.find(params[:id])
+    @oder_details = @oder.oder_de
   end
 
   # 注文情報確認画面
