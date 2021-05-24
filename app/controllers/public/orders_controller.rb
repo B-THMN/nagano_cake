@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def index
+    @oders = current_customer.orders
   end
 
   def new
@@ -8,6 +9,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @oder = Oder.find(params[:id])
+    @oder_details = @oder.oder_de
   end
 
   def check

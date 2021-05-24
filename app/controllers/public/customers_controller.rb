@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     # @user = User.find(current_user.id)
+    @customer = current_customer
   end
 
   def edit
