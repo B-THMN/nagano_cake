@@ -13,14 +13,16 @@ class Public::OrdersController < ApplicationController
   # 注文履歴詳細
   def show
     @order = Order.find(params[:id])
-    @order_details = @oder.oder_de
+    @order_details = @order.order_de
   end
 
   # 注文情報確認画面
   def check
     @cart_items = current_customer.cart_items
     # params[:order][:payment_method]
-		@order = Order.new(customer: current_customer,payment_method: params[:order][:payment_method])
+		@order = Order.new
+		# ストロングパラメータのtotal_paymentに値を代入する
+		# @order.total_payment = billing(@order)
 		# if文でshipping_adressesの値を受け取り各々の処理を書く
 		# 自分の住所
     if params[:order][:addresses] == "residence"
@@ -30,7 +32,7 @@ class Public::OrdersController < ApplicationController
 
     # 登録済住所
     elsif params[:order][:addresses] == "shipping_addresses"
-      ship = Addresses.find(params[:order][:address_id])
+      ship = Address.find(params[:order][:order_address])
       @order.postcode = ship.postcode
       @order.address = ship.address
       @order.name = ship.name
@@ -49,8 +51,9 @@ class Public::OrdersController < ApplicationController
   # 注文情報確定
   def create
     # @item = Item.find(params[:item_id])
-    @order = current_customer.orders.new(order_params)
-    @order.save
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @order.save!
     redirect_to orders_complete_path
   end
 
@@ -63,7 +66,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postcode, :address, :name, :payment_method,)
+    params.require(:order).permit(:postcode, :address, :name, :payment_method, :total_payment)
   end
 
   # 配送先テーブルにtext_field_tagを使ってデータ保存

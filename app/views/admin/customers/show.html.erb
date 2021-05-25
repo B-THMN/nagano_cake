@@ -1,26 +1,67 @@
 <div class="container">
 
-<h2 class="my-4"><span style="background-color:#EFEFEF"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細　</span></h2>
+<h2 class="my-2"><span style="background-color:#EFEFEF"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細　</span></h2>
 
+<table class="table">
+ <tbody>
+    
+   <tr>
+    <td>会員ID</td>
+    <td><%= @customer.id %></td>
+   </tr>
+   
+   <tr>
+    <td>氏名</td>
+    <td><%= @customer.last_name %><%= @customer.first_name %></td>
+   </tr>
+   
+　 <tr>
+　  <td>フリガナ</td>
+　  <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+　 </tr>
+　 
+   <tr>
+    <td>郵便番号</td>
+    <td><%= @customer.post_code %></td>
+   </tr>
+   <tr>
+    <td>住所</td>
+    <td><%= @customer.address %></td>
+   </tr>
+   
+   <tr>
+    <td>電話番号</td>
+    <td><%= @customer.phone_number %></td>
+   </tr>
+   
+   <tr>
+    <td>メールアドレス</td>
+    <td><%= @customer.email %></td>
+   </tr>
+   
+   <tr>
+      <td>会員ステータス</td>
+      <td>
+       <% if @customer.is_deleted == false %>
+        <i class="text-success">有効</i>
+       <% else %>
+        <i class="text-secondary">退会</i>
+       <% end %>
+      </td>
+    </tr>
 
-<br>会員ID<%= @customer.id %></br>
-<br>氏名<%= @customer.last_name %><%= @customer.first_name %></br>
-<br>フリガナ<%= @customer.last_name_kana %><%= @customer.first_name_kana %></br>
-<br>郵便番号<%= @customer.post_code %></br>
-<br>住所<%= @customer.address %></br>
-<br>電話番号<%= @customer.phone_number %></br>
-<br>メールアドレス<%= @customer.email %></br>
-<br>会員ステータス
-   <% if @customer.is_deleted == false %>
-   <i class="active_color">有効</i>
-   <% else %>
-   <i class="inactive_color">退会</i>
-   <% end %>
-</br>
+    <tr>
+     <td>
+       <%= link_to '編集する', edit_admin_customer_path(@customer.id) , class: 'btn btn-success' %>
+　　   <%= link_to '注文一覧を見る', admin_orders_path ,  class: 'btn btn-primary' %>
+　　 </td>
+　　</tr>
+　</tbody>
+</table>
+</div>
 
-<br><%= link_to '編集する', edit_admin_customer_path(@customer.id) , class: 'btn btn-success' %>
-　　<%= link_to '注文一覧を見る', admin_orders_path , class: 'btn btn-success' %>
-
+　</tbody>
+</table>
 </div>
 
 
