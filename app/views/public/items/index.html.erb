@@ -1,25 +1,28 @@
 <div class="container">
 <div class="row">
+<div class="color">
 
-<h2>商品一覧<span>全<%= @items.count %>件</span></h2>
-<div class="row">
+<h3 class="pt-3 item-title">商品一覧<span>全<%= @items.count %>件</span></h3>
+<div class="row m-5 item-index">
 <% @items.each do |item| %>
-<div class="grid">
+ <table class="d-inline-block mr-4 ">
 <%= link_to item_path(item.id), class: "btn-link" do %>
 <div>
-<%= attachment_image_tag(item, :image, size: "200x150", fallback: "no_image.jpg") %>
+<%= attachment_image_tag(item, :image, size: "220x180", fallback: "no_image.jpg") %>
 </div>
 <p class="item-name">
 <%= item.name %>
 </p>
 <% if item.is_active == true %>
-<p>¥<%= item.excluding_tax_price %></p>
+<p class="item-price">¥<%= item.excluding_tax_price %></p>
 <% else %>
 <p class="soldout">売り切れ</p>
 <% end %>
+<% end %>
+</table>
+<% end %>
 </div>
-<% end %>
-<% end %>
+<%= paginate @items %>
 </div>
 </div>
 </div>
