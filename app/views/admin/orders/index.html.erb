@@ -16,13 +16,13 @@
         <td><%= link_to order.created_at ,order_path(order) %></td>
         <td><%= order.customer_id %></td>
         <td><%= order.count %></td>
-        <td><%= select :order_status, :name, order.order_statuses.keys.to_a, include_blank: true %></td>
+        <td><%= order.order_status %></td>
         <% end %>
 
 
       <!--end-->
     </tbody>
   </table>
-  <%= paginate @orders %>
+<div class="text-center"><%= paginate @orders %></div>  
 
 </div>
