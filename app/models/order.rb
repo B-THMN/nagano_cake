@@ -12,7 +12,7 @@ class Order < ApplicationRecord
 	validates :postcode, length: {is: 7}, numericality: { only_integer: true } 
 	# (郵便番号のバリデーション)
 
-	#enum payment_method: {"クレジットカード": 0,"銀行振込": 1}
+	enum payment_method: {"クレジットカード": 0,"銀行振込": 1}
 	enum order_status: {"入金待ち": 0,"入金確認": 1,"製作中": 2,"発送準備中": 3, "発送済み": 4}
 	#(上記2つはenumを使用し、管理している）
 
