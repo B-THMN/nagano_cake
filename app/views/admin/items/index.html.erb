@@ -1,5 +1,6 @@
+<div class="container">
 <main>
-   <h2>商品一覧</h2>
+   <h4><span style="background-color:#EFEFEF">　商品一覧　</h4>
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -19,9 +20,9 @@
             <td><%= item.genre.name %></td>
             <td>
              <% if item.is_active == true %>
-             <i class="active_color">販売中</i>
+             <i class="text-success">販売中</i>
              <% else %>
-             <i class="inactive_color">販売停止中</i>
+             <i class="text-secondary">発売停止中</i>
              <% end %>
             </td>
           </tr>

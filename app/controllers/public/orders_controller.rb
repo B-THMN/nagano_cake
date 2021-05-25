@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   # 注文履歴一覧
   def index
-    # @orders = current_customer.orders
+    @orders = current_customer.orders
   end
 
   # 注文情報入力
