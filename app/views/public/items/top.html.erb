@@ -1,30 +1,20 @@
+<section class="hero">
+  <div class="title-frame"><h1 class="title">Welcome to Nagano Cake</h1></div>
+  <br>
+  <div><p>
+  <div class="text">ECサイトがオープンいたしました！<br>
+	                  たくさんのお菓子達があなたを待っています。<br>
+	                  <br>
+	                  ※購入・配送には会員登録が必要になります。<br>
+	</p></div>
+<section>
 
-
-<div class='container'>
-  <div class='row'>
-    <div class="px-10 mx-auto">
-     <div class="container">
-
-
-
-<div class="home-content">
-
-	<p>ようこそ、ながのCAKEへ！
-	<br>
-	<br>
-	<br>
-
-		このサイトは、ケーキ販売のECサイトになります。<br>
-	   会員でない方も商品の閲覧はできますが、<br>
-	   購入には会員登録が必要になります。<br></p>
-</div>
-
- <h4>新着商品</h4>
+  <h4 class="new">NEW　ITEMs</h4>
  <div class="top-new">
  <% @items.each do |item| %>
  <table class= "d-inline-block">
  <tr>
- 	
+
  <td class="image-top-new">
               <% if admin_signed_in? %>
                 <%= link_to admin_item_path(item) do %>
@@ -43,8 +33,8 @@
 
         </table>
         <% end %>
-        <p class="text-md-center pb-3">
-          <%= link_to "全ての商品︎", items_path, class: 'btn bt-md' %>
+        <p class="text-md-center pb-3 background-color:#EFEFEF">
+          <%= link_to "︎see more...", items_path, class: ' btn btn-outline-light btn-sm ' %>
         </p>
       </div>
 
