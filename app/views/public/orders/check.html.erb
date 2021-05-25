@@ -32,7 +32,12 @@
     </tr>
     <tr>
       <td>請求金額</td>
-      <td>¥<%= billing_amount(@order).to_s(:delimited) %></td>
+      <td>
+
+        <% total = billing_amount(@order) %>
+        ¥<%= total.to_s(:delimited) %>
+
+      </td>
     </tr>
   </table>
   <table>
@@ -45,4 +50,14 @@
       <td><%= "#{@order.postcode} #{@order.address} #{@order.name}" %></td>
     </tr>
   </table>
+</div>
+<div class ="col-xs-11">
+  <%= form_with model: @order, url:orders_path, method: :post, local: true do |f| %>
+    <%= f.hidden_field :postcode %>
+    <%= f.hidden_field :address %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :payment_method %>
+    <%= f.hidden_field :total_payment, :value => total %>
+    <%= f.submit "購入を確定する" %>
+  <% end %>
 </div>
