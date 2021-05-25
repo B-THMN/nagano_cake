@@ -63,7 +63,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postcode, :address, :name, :payment_method)
+    params.require(:order).permit(:postcode, :address, :name, :payment_method,)
   end
 
   # 配送先テーブルにtext_field_tagを使ってデータ保存
