@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   # 注文履歴一覧
   def index
     @orders = current_customer.orders
@@ -53,7 +55,7 @@ class Public::OrdersController < ApplicationController
     # @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save!
+    @order.save
     redirect_to orders_complete_path
   end
 
