@@ -14,8 +14,6 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_de
-
-   
   end
 
   # 注文情報確認画面
