@@ -22,7 +22,7 @@ class Public::OrdersController < ApplicationController
     # params[:order][:payment_method]
 		@order = Order.new
 		# ストロングパラメータのtotal_paymentに値を代入する
-		@order.total_payment = billing_amount(@order)
+		# @order.total_payment = billing(@order)
 		# if文でshipping_adressesの値を受け取り各々の処理を書く
 		# 自分の住所
     if params[:order][:addresses] == "residence"
@@ -32,7 +32,7 @@ class Public::OrdersController < ApplicationController
 
     # 登録済住所
     elsif params[:order][:addresses] == "shipping_addresses"
-      ship = Addresses.find(params[:order][:address_id])
+      ship = Address.find(params[:order][:order_address])
       @order.postcode = ship.postcode
       @order.address = ship.address
       @order.name = ship.name
@@ -52,7 +52,8 @@ class Public::OrdersController < ApplicationController
   def create
     # @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
-    @order.save
+    @order.customer_id = current_customer.id
+    @order.save!
     redirect_to orders_complete_path
   end
 
