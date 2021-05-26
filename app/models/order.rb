@@ -9,7 +9,7 @@ class Order < ApplicationRecord
 
 	#（会員、配送先住所、配送先氏名、送料、請求額、支払い方法、注文ステータスが空でないバリデーション）
 
-	validates :postcode, length: {is: 7}, numericality: { only_integer: true } 
+	validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 	# (郵便番号のバリデーション)
 
 	enum payment_method: {"クレジットカード": 0,"銀行振込": 1}
