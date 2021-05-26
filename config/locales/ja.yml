@@ -1,0 +1,8 @@
+ja:
+  enums:
+    order_detail:
+      production_status:
+        waiting: "着手不可"
+        pending: "製作待ち"
+        working: "製作中"
+        completed: "製作完了"

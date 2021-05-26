@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
       new_quantity = cart_item.quantity + @cart_item.quantity
       cart_item.update_attribute(:quantity, new_quantity)
       @cart_item.delete
-    end 
+    end
   end
   @cart_item.save
   # flash[:notice] = "#{@cart_item.item.name}をカートに追加しました"
