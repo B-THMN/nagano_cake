@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   # 注文履歴一覧
   def index
     @orders = current_customer.orders
@@ -13,7 +15,7 @@ class Public::OrdersController < ApplicationController
   # 注文履歴詳細
   def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_de
+    @order_details = @order.order_details
   end
 
   # 注文情報確認画面
@@ -53,15 +55,24 @@ class Public::OrdersController < ApplicationController
     # @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save!
+    @order.save
+
+    # 注文が完了したらカート内の商品を全て消す
+
+    current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
+      @order_detail.item_id = cart_item.item.id
+      @order_detail.quantity = cart_item.quantity
+      @order_detail.purchase_price = cart_item.item.excluding_tax_price
+      @order_detail.save
+      cart_item.destroy # 注文が完了したらカート内の商品を全て消す
+    end
     redirect_to orders_complete_path
   end
 
   # 注文完了
   def complete
-    # 注文が完了したらカート内の商品を全て消す
-    cart_items = current_customer.cart_items
-    cart_items.destroy_all
   end
 
   private

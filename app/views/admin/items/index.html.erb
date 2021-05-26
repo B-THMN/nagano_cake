@@ -1,6 +1,7 @@
 <div class="container">
-<main>
-   <h4><span style="background-color:#EFEFEF">　商品一覧　</h4>
+  <div class="row">
+    <h4><span style="background-color:#EFEFEF">　商品一覧　</h4>
+    <%= link_to "新規商品登録", new_admin_item_path, class: "btn btn-success" %>
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -29,5 +30,5 @@
         <% end %>
       </tbody>
     </table>
-</main>
-</main>
+  </div>
+</div>

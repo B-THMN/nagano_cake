@@ -12,11 +12,11 @@
       </tr>
     </thead>
     <tbody>
-      <%= @orders.each do |order| %>
+      <% @orders.each do |order| %>
         <tr>
           <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
-            <%= order.post_code %><br>
+            〒<%= order.postcode %><br>
             <%= order.address %><br>
             <%= order.name %>
           </td>
@@ -27,8 +27,7 @@
           </td>
           <td><%= order.total_payment.to_s(:delimited) %>円</td>
           <td><%= order.order_status %></td>
-       	  <%= link_to "注文詳細", order_path(order), class: "btn btn-success" %>
-          <td>表示する</td>
+       	  <td><%= link_to "表示する", order_path(order), class: "btn btn-success" %></td>
         </tr>
       <% end %>
     </tbody>

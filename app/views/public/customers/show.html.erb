@@ -1,8 +1,8 @@
-　<div class="container"> 
+　<div class="container">
     <div class="row">
       <div class="col-xs-8">
         <h4><span style="background-color:#EFEFEF">　マイページ　</h4>
-        <p><strong>登録情報</strong><%= link_to '編集する',edit_customer_path, class: 'btn btn-success' %></p>
+        <p><strong>登録情報</strong><%= link_to '編集する', edit_customer_path, class: 'btn btn-success' %></p>
         <table class="table table-hover table-bordered">
           <tr>
             <td>氏名</td>
@@ -29,7 +29,7 @@
             <td><%= @customer.email %></td>
           </tr>
         </table>
-        
+
         <p><strong>配送先</strong><%= link_to '一覧を見る', addresses_path, class: 'btn btn-primary' %></p>
         <p><strong>注文一覧</strong><%= link_to '一覧を見る', orders_path, class: 'btn btn-primary' %></p>
       </div>
