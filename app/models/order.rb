@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 	include ActionView::Helpers
-    belongs_to :customer, foreign_key: "customer_id"
-    has_many :items, through: :order_details, dependent: :destroy
+  belongs_to :customer, foreign_key: "customer_id"
+  has_many :items, through: :order_details, dependent: :destroy
 	has_many :order_details, dependent: :destroy
 
 	validates :customer_id, :postcode, :address, :name, :postage, :total_payment, :payment_method, presence: true
