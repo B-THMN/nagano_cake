@@ -11,6 +11,14 @@ class Order < ApplicationRecord
 	# (郵便番号のバリデーション)
 
 	enum payment_method: {"クレジットカード": 0,"銀行振込": 1}
-	enum order_status: {"入金待ち": 0,"入金確認": 1,"製作中": 2,"発送準備中": 3, "発送済み": 4}
+	# enum order_status: {"入金待ち": 0,"入金確認": 1,"製作中": 2,"発送準備中": 3, "発送済み": 4}
+	# 注文ステータス（0=入金待ち / 1=入金確認 / 2=製作中 / 3=発送準備中 / 4=発送済み）
+	enum order_status: {
+	    waiting: 0,
+	    paid_up: 1,
+	    in_production: 2,
+	    preparing: 3,
+	    shipped: 4
+	}
 	#(上記2つはenumを使用し、管理している）
 end
