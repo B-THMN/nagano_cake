@@ -56,7 +56,7 @@ section {
   color: white;
   font-family: 'Arial', serif;
   text-align: center;
-  padding-top: 30vh;
+  padding-top: 20vh;
 }
 .title {
   background: linear-gradient(transparent 70%, #8aa7a1 70%);
@@ -195,13 +195,65 @@ header video {
 }
 
 
-.login-backimg{
-  background: url(door.jpeg) no-repeat no-repeat left top / auto;
-.image-top-new {
+.login-backimg {
+  background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  background-position: right 35% bottom 35%;
 }
+
+.top-new {
+  display: flex !important;
+  margin-left: 250px;
+}
+
 .password_box {
 margin-left: 16px;
 }
 .td-label {
 width: 100px;
+}
+
+.mgr-10 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cart {
+  text-align: right;
+}
+
+// .cart-backimg {
+  // background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  // background-position: right 35% bottom 17%;
+// }
+
+.row {
+  display: block;
+}
+
+.d-inline-block {
+  display: flex !important;display: flex !important;
+  flex-wrap: wrap;
+}
+
+.btn-outline-danger {
+  margin: 0 0 0 auto;
+  float: right;
+}
+
+.warning {
+  width: 1030px;
+}
+.pull-right {
+  background: linear-gradient(transparent 70%, #FFF799 0%);
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+}
+
+.col-xs-11 {
+  margin-left: 700px;
+}
+
+.cart-backimg {
+  background-color: whitesmoke;
 }
