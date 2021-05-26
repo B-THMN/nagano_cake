@@ -1,38 +1,39 @@
  <h4><span style="background-color:#EFEFEF">　注文履歴詳細　</h4>
 	<div class="row">
     <div class="col-md-12" >
-      <table class="table table-hover table-bordered table-inverse">
-        <tr>
-          <td>購入者</td>
-          <td><%= @order.customer.full_name %></td>
-        </tr>
-        <tr>
-          <td>注文日</td>
-          <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        </tr>
-        <tr>
-          <td>配送先</td>
-          <td><%= @order.postcode %><%= @order.address %></td>
-        </tr>
-        <tr>
-          <td>支払方法</td>
-          <td><%= @order.payment_method %></td>
-        </tr>
-        <%= form_with model: @order, url: admin_order_path, method: :patch , local:true do |f| %>
-        <tr>
-          <td>注文ステータス</td>
-          <td><%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %></td>
-        </tr>
-        <tr>
-          <td>
-          <%= f.submit '更新'  ,class: "btn btn-primary" %>
-          </td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-</div>
+     <%= form_with model: @order, url: admin_order_path, method: :patch , local:true do |f| %>
+     <table class="table table-hover table-bordered table-inverse">
+		    <tr>
+		     <td>購入者</td>
+		     <td><%= @order.customer.full_name %></td>
+		    </tr>
+		    <tr>
+		     <td>注文日</td>
+		     <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+		    </tr>
+		    <tr>
+		     <td>配送先</td>
+		     <td><%= @order.postcode %><%= @order.address %></td>
+		    </tr>
+		    <tr>
+		     <td>支払方法</td>
+		     <td><%= @order.payment_method %></td>
+		    </tr>
+
+		    <tr>
+		     <td>注文ステータス</td>
+		     <td><%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %></td>
+		    </tr>
+		    <tr>
+		    <td>
+		     <%= f.submit '更新' ,class: "btn btn-primary" %>
+		    </td>
+		    </tr>
+		    </table>
+		     <% end %>
+		   </div>
+		  </div>
+		 </div>
 <div class="buyer-order col-xs-9">
 			<table class="table table-hover table-bordered table-inverse">
 			    <thead>
@@ -42,10 +43,13 @@
 			          <th>数量</th>
 			          <th>小計</th>
 			          <th>製作ステータス</th>
+			        </tr>
+			     </thead>
+			     <tbody>
 
 			          <% @order_details.each do |order_detail| %>
 
-					        <tr>
+					   <tr>
 			            <td>
 			              <%= order_detail.item.name %>
 			            </td>
@@ -58,20 +62,21 @@
 			            <td>
 			              ¥<%= purchase_price(order_detail).to_s(:delimited) %>
 			            </td>
+			              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local:true do |f| %>
 			            <td>
-			             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
-			            </td>
-			            <td>
-			            	<%= f.select :produciton_status, OrderDetail.produciton_statuses.keys, class: "order_status" %>
+			            	<%= f.select  :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
 			            	<%= f.submit '更新'  ,class: "btn btn-warning" %>
 			            </td>
 			            <% end %>
+			           </tr>
 			            <% end %>
-			            </table>
+			            </tbody>
+			          </table>
+
 			  <table class="table table-hover table-bordered table-inverse">
-			  	<div class="buyer-order col-xs-9">
-				<tr>
-          <th class="info">商品合計</th>
+
+                <tr>
+                    <th class="info">商品合計</th>
 					<td>¥<%= total_payment(@order.order_details).to_s(:delimited) %></td>
 				</tr>
 				<tr>
@@ -79,8 +84,9 @@
 					<td>¥<%= @order.postage.to_s(:delimited) %></td>
 				</tr>
 				<tr>
-					<th class="info">請求金額合計</th>
-					<td>¥<%= (total_payment(@order.order_details).to_i + @order.postage.to_i).to_s(:delimited) %></td>
+				 <th class="info">請求金額合計</th>
+				 <td>¥<%= (total_payment(@order.order_details).to_i + @order.postage.to_i).to_s(:delimited) %></td>
 				</tr>
-				</thead>
+
 		    </table>
+
