@@ -20,7 +20,6 @@
           <td>支払方法</td>
           <td><%= @order.payment_method %></td>
         </tr>
-
         <tr>
           <td>注文ステータス</td>
           <td><%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %></td>
