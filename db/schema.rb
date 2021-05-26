@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_050012) do
     t.integer "postage", default: 800, null: false
     t.integer "total_payment", null: false
     t.integer "payment_method", default: 0, null: false
-   
+    t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
