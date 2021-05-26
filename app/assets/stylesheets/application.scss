@@ -229,9 +229,9 @@ width: 100px;
   // background-position: right 35% bottom 17%;
 // }
 
-.row {
-  display: block;
-}
+// .row {
+  // display: block;
+// }
 
 .d-inline-block {
   display: flex !important;display: flex !important;
@@ -277,5 +277,13 @@ width: 100px;
 }
 
 .show-img {
-  background: url(white.jpeg) no-repeat no-repeat left top / 90vw auto;
+  background: url(white.jpeg) no-repeat no-repeat left top / 100vw auto;
+}
+
+.btn-success {
+  margin-left: 920px;
+}
+
+.btn-outline-success {
+  margin-left: 500px
 }
