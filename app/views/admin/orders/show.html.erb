@@ -87,5 +87,4 @@
 				 <th class="info">請求金額合計</th>
 				 <td>¥<%= (total_payment(@order.order_details).to_i + @order.postage.to_i).to_s(:delimited) %></td>
 				</tr>
-
 		    </table>

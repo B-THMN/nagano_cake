@@ -56,7 +56,7 @@ section {
   color: white;
   font-family: 'Arial', serif;
   text-align: center;
-  padding-top: 30vh;
+  padding-top: 20vh;
 }
 .title {
   background: linear-gradient(transparent 70%, #8aa7a1 70%);
@@ -194,16 +194,88 @@ header video {
   color: black;
 }
 
-.login-backimg{
-  background: url(door.jpeg) no-repeat no-repeat left top / auto;
+
+
+.login-backimg {
+  background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  background-position: right 35% bottom 35%;
 }
 
-.image-top-new {
+.top-new {
+  display: flex !important;
+  margin-left: 250px;
 }
+
 
 .password_box {
 margin-left: 16px;
 }
 .td-label {
 width: 100px;
+}
+
+.mgr-10 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cart {
+  text-align: right;
+}
+
+// .cart-backimg {
+  // background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  // background-position: right 35% bottom 17%;
+// }
+
+.row {
+  display: block;
+}
+
+.d-inline-block {
+  display: flex !important;display: flex !important;
+  flex-wrap: wrap;
+}
+
+.btn-outline-danger {
+  margin: 0 0 0 auto;
+  float: right;
+}
+
+.warning {
+  width: 1030px;
+}
+.pull-right {
+  background: linear-gradient(transparent 70%, #FFF799 0%);
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+}
+
+.col-xs-11 {
+  margin-left: 700px;
+}
+
+.cart-backimg {
+  background-color: whitesmoke;
+}
+
+.image-link {
+  border: 3px thick double green;
+  width: 200px;
+  height: 150px;
+  margin: 20px auto 0;
+  transition-duration: 0.5s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.image-link:hover {
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.show-img {
+  background: url(white.jpeg) no-repeat no-repeat left top / 90vw auto;
 }
