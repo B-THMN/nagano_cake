@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 # 標準 日本語化(enum)
-config.i18n.default_locale = :ja
+# config.i18n.default_locale = :ja
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
