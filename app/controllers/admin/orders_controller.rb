@@ -13,7 +13,14 @@ class Admin::OrdersController < ApplicationController
   def update
 	@order = Order.find(params[:id])
 	@order.update(order_params)
-	redirect_to admin_orders_path
+	if @order.order_status == "入金確認"
+	@order.order_details.each  do |order_detail|
+	order_detail.production_status ="pending"
+	order_detail.save
+	end
+	end
+	redirect_to admin_order_path(@order)
+
   end
 
   private
