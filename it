@@ -1,0 +1,12 @@
+=> [32m#<Order:0x00007f23b20fc6e8[0m
+ id: [1;36mnil[0m,
+ customer_id: [1;34m2[0m,
+ postcode: [31m[1;31m"[0m[31m56100001[1;31m"[0m[31m[0m,
+ address: [31m[1;31m"[0m[31m大阪府[1;31m"[0m[31m[0m,
+ name: [31m[1;31m"[0m[31m前川翔[1;31m"[0m[31m[0m,
+ postage: [1;34m800[0m,
+ total_payment: [1;34m5640[0m,
+ payment_method: [31m[1;31m"[0m[31mクレジットカード[1;31m"[0m[31m[0m,
+ order_status: [31m[1;31m"[0m[31m入金待ち[1;31m"[0m[31m[0m,
+ created_at: [1;36mnil[0m,
+ updated_at: [1;36mnil[0m[32m>[0m
