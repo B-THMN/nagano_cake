@@ -56,7 +56,7 @@
         <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local:true do |f| %>
           <td>
             <%= f.select  :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
-            <%= f.submit '更新'  ,class: "btn btn-warning" %>
+            <%= f.submit '更新',class: "btn btn-warning" %>
           </td>
         <% end %>
       </tr>

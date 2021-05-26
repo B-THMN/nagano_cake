@@ -12,16 +12,8 @@ class Admin::OrdersController < ApplicationController
 
   def update
 	@order = Order.find(params[:id])
-<<<<<<< HEAD
-	if @order.update(order_params)
-	   redirect_to admin_orders_path
-	else
-	   render "show"
-	end
-=======
 	@order.update(order_params)
 	redirect_to admin_orders_path
->>>>>>> origin/develop
   end
 
   private
