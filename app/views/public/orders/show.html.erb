@@ -16,7 +16,7 @@
             <tr>
               <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
               <td>
-                <%= @order.postcode %><br>
+                〒<%= @order.postcode %><br>
                 <%= @order.address %><br>
                 <%= @order.name %>
               </td>
@@ -40,7 +40,7 @@
             <tr>
               <td><%= @order.postage.to_s(:delimited) %>円</td>
               <td><%= total_payment(@order_details).to_s(:delimited) %>円</td>
-              <td><%= @order.total_payment.to_s(:delimited) %></td>
+              <td><%= @order.total_payment.to_s(:delimited) %>円</td>
             </tr>
           </tbody>
         </table>
