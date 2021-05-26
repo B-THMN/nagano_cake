@@ -1,9 +1,10 @@
-<div class="container row mx-auto">
-  <div class="signin text-center py-5 px-3 col-md-6 mx-auto rounded">
+<div class="login-backimg">
+<div class="container">
+  <div class="signin text-center py-5 px-5 col-md-5 mx-auto ">
     <h3 class="signin-title mb-5">ログイン</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h5><span style="background-color:#F5F5F5">　会員の方はこちらからログイン　</h5>
+    <h5><span style="background-color:#ffffe0">　会員の方はこちらからログイン　</h5>
     <br>
     <div class="field">
       <%= f.label "メールアドレス" %>
@@ -15,16 +16,17 @@
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div><br>
     <div class="actions">
-      <%= f.submit "ログイン", class: 'btn btn-outline-primary' %>
+      <%= f.submit "ログイン", class: 'btn btn-outline-success' %>
     </div>
   <% end %>
 <br>
-  <h5><span style="background-color:#F5F5F5">　会員登録がお済みでない方　</h5>
+  <h5><span style="background-color:#ffffe0">　会員登録がお済みでない方　</h5>
   <table>
     <tr>
-      <td><%= render "customers/shared/links" %></td>
-      <td>から新規登録を行ってください。</td>
+      <span class="text-center"><td><%= render "customers/shared/links" %></td>
+      <td>から新規登録を行ってください。</td></span>
     </tr>
   </table>
-
+</div>
+</div>
 </div>

@@ -6,8 +6,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-  @order = Order.find(params[:id])
-  @order_details = @order.order_details
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   def update
@@ -20,11 +20,12 @@ class Admin::OrdersController < ApplicationController
 	end
 	end
 	redirect_to admin_order_path(@order)
+
   end
 
   private
   def order_params
-	params.require(:order).permit(:order_status)
+	  params.require(:order).permit(:order_status)
   end
 
 end
