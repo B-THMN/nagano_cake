@@ -4,7 +4,7 @@
     <!--<div class="container">-->
     <% if admin_signed_in? %>
       <!--管理者がログインしている時-->
-      <%= link_to "NaganoCAKE", admin_homes_top_path, class: "navbar-brand text-light fas fa-birthday-cake" %>
+      <%= link_to "NaganoCAKE", admin_orders_path, class: "navbar-brand text-light fas fa-birthday-cake" %>
     <% else %>
       <!--管理者がログインしていない時-->
       <%= link_to "NaganoCAKE", root_path, class: "navbar-brand text-light fas fa-birthday-cake" %>

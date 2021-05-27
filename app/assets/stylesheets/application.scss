@@ -58,6 +58,7 @@ section {
   text-align: center;
   padding-top: 20vh;
 }
+
 .title {
   background: linear-gradient(transparent 70%, #8aa7a1 70%);
   margin: 0 auto;
@@ -67,6 +68,7 @@ section {
 .title-frame {
   width: 100%;
 }
+
 .new {
   background-color: rgba( 204, 255, 204, 0.55 );
   color: white;
@@ -194,8 +196,6 @@ header video {
   color: black;
 }
 
-
-
 .login-backimg {
   background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
   background-position: right 35% bottom 35%;
@@ -206,10 +206,10 @@ header video {
   margin-left: 250px;
 }
 
-
 .password_box {
 margin-left: 16px;
 }
+
 .td-label {
 width: 100px;
 }
@@ -278,12 +278,4 @@ width: 100px;
 
 .show-img {
   background: url(white.jpeg) no-repeat no-repeat left top / 100vw auto;
-}
-
-.btn-success {
-  margin-left: 920px;
-}
-
-.btn-outline-success {
-  margin-left: 500px
 }
