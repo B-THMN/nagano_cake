@@ -1,2 +1,73 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+  <div class="container">
+    <h4><span style="background-color:#EFEFEF">　注文履歴詳細　</h4>
+    <div class="row">
+      <div class="cli-xs-8">
+
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+            <strong>注文情報</strong>
+            <tr>
+              <th>注文日</th>
+              <th>配送先</th>
+              <th>支払方法</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+              <td>
+                <%= @order.postcode %><br>
+                <%= @order.address %><br>
+                <%= @order.name %>
+              </td>
+              <td><%= @order.payment_method %></td>
+              <td><%= @order.order_status %></td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="col-xs-3">
+        <table class="table table-hover table-bordered">
+          <thead class="thead-light">
+            <strong>請求情報</strong>
+            <tr>
+              <th>送料</th>
+              <th>商品合計</th>
+              <th><strong>請求金額</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @order.postage.to_s(:delimited) %>円</td>
+              <td><%= total_payment(@order_details).to_s(:delimited) %>円</td>
+              <td><%= @order.total_payment.to_s(:delimited) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <strong>注文内容</strong>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= tax_price(order_detail.item.excluding_tax_price).to_s(:delimited) %>円</td>
+              <td><%= order_detail.quantity %></td>
+              <td><%= purchase_price(order_detail).to_s(:delimited) %>円</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

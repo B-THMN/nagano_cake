@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'public/items#top'
 
   devise_for :customers, controllers: {
   sessions:      'customers/sessions',
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     get 'homes/top'
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
@@ -24,18 +25,18 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
-    get 'items/top'
     get 'items/about'
     resources :items, only: [:index, :show]
     delete 'cart_items/destroy_all'
     resources :cart_items, only: [:index, :update, :create, :destroy]
-    post 'orders/check'
+    post 'orders/check' => 'orders#check'
     get 'orders/complete'
+    # resources :orders, only: [:index, :show, :create, :new]
     resources :orders, only: [:index, :show, :create, :new]
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
     resources :customers, only: [:edit, :show, :update]
-    resources :addresses, except: [:show, :new]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
 end

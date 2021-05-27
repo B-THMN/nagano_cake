@@ -1,2 +1,20 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class ="container m-5">
+    <div class="row">
+       <div class="col-2"></div>
+         <h4 class="my-4"><span style="background-color:#EFEFEF">　商品新規登録　</span></h4>
+    </div>
+</div>
+
+<%=form_with model: [:admin, @item], local:true do |f| %>
+
+<%= render "home", f: f %>
+ <div class="col-md-8">
+  <table class="table ">
+    <div class="row">
+      <div class="col-md-3 offset-md-6 mt-3">
+        <%= f.submit '新規登録', class:"btn btn-sm btn-success" %>
+       </div>
+      </div>
+    <% end %>
+   </table>
+</div>

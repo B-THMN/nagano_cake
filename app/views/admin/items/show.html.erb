@@ -1,2 +1,53 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+
+<div class="container">
+ <div class="low">
+  <div class="col-md-11">
+   <h2 class="my-8"><span style="background-color:#EFEFEF">　商品詳細　</span></h2>
+    <ul>
+     <table class="table mx-auto col-8">
+        
+      <tr>
+       <td>
+      <%= attachment_image_tag(@item, :image, size: "300x200", fallback: "no_image.jpg") %>
+       </td>
+      </tr>
+      <tr>
+       <td>商品名</td>
+         <td>
+          <%= @item.name %>
+         </td>
+      </tr>
+      <tr>
+       <td>商品説明</td>
+         <td>
+          <%= @item.introduction %>
+         </td>
+      </tr>
+      <tr>
+       <td>ジャンル</td>
+        <td>
+         <%= @item.genre.name %>
+        </td>
+      </tr>
+      <tr>
+       <td>税込価格（税抜価格）</td>
+        <td>¥<%= @item.excluding_tax_price %></td>
+      </tr>
+      <tr>
+       <td>販売ステータス</td>
+        <td>
+         <% if @item.is_active == true %>
+         <i class="text-success">販売中</i>
+         <% else %>
+         <i class="text-secondary">発売停止中</i>
+         <% end %>
+         </td>
+      </tr>
+      
+      <td><%= link_to '編集', edit_admin_item_path(@item.id) , class: 'btn btn-success' %></td>
+      
+      </div>
+      </table>
+      
+            </ul>
+

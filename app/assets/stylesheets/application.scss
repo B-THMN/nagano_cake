@@ -1,0 +1,281 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.about {
+  text-align: center;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.home-content p {
+  font-size: 1.050rem;
+  font-family: 'Arial', serif;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 60%;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  height: 95vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.hero {
+  background-image: url(sora.jpeg);
+  color: white;
+  font-family: 'Arial', serif;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+.title {
+  background: linear-gradient(transparent 70%, #8aa7a1 70%);
+  margin: 0 auto;
+  width: 40%;
+}
+
+.title-frame {
+  width: 100%;
+}
+
+.new {
+  background-color: rgba( 204, 255, 204, 0.55 );
+  color: white;
+  margin: 0 auto;
+  width: 12%;
+}
+
+.home-hero {
+  background: url(about2.jpeg) no-repeat right top / 70vw auto;
+  padding: 5.5rem 1rem 3rem;
+}
+
+.home-hero h2 {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 1.5rem;
+  margin: 8vw 0 12vw;
+  background: rgba(255,255,255,.8);
+  padding: 1rem;
+  display: inline-block;
+}
+
+.home-hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .home-hero {
+    padding: 8vw 1rem;
+  }
+  .home-hero h2 {
+    font-size: 2.5rem;
+    margin: 0 0 2rem;
+    background: none;
+    padding: 0;
+  }
+  .home-hero p {
+    width: 38vw;
+  }
+}
+
+.post-img {
+    width: 220px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 40% 70% 50% 30%/50%;
+}
+
+header {
+  position: relative;
+  margin-bottom: .5rem;
+}
+
+.header-text {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header video {
+  object-fit: cover;
+  object-position: center top;
+  opacity: var(--video-opacity);
+}
+
+.header-text,
+header video {
+  width: 100vw;
+  height: 90vh;
+}
+.complete-img{
+  background: url(order.jpeg) no-repeat left top / 90vw auto;
+   width: 100vw;
+  height: 90vh;
+}
+.order-ok {
+  padding: 3rem 1rem 3rem;
+  position: absolute;
+  top:250px;
+  right:240px;
+
+}
+.order-ok h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  padding: 1rem;
+  // display: inline-block;
+}
+
+.order-ok p {
+  font-size: 1.125rem;
+  padding: 1rem;
+  display: inline-block;
+}
+
+.color {
+  background: url(white.jpeg) no-repeat no-repeat left top / 90vw auto;
+  padding-left: 50px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.item-name {
+  color: black;
+}
+
+.item-price {
+  color: black;
+}
+
+.item-title {
+  display: flex;
+  justify-content: center;
+}
+
+.new-backimg {
+  background: url(pen2.jpeg) no-repeat no-repeat left top / 80vw auto;
+  color: black;
+}
+
+.login-backimg {
+  background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  background-position: right 35% bottom 35%;
+}
+
+.top-new {
+  display: flex !important;
+  margin-left: 250px;
+}
+
+.password_box {
+margin-left: 16px;
+}
+
+.td-label {
+width: 100px;
+}
+
+.mgr-10 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cart {
+  text-align: right;
+}
+
+// .cart-backimg {
+  // background: url(lemon.jpeg) no-repeat no-repeat left top / auto;
+  // background-position: right 35% bottom 17%;
+// }
+
+// .row {
+  // display: block;
+// }
+
+.d-inline-block {
+  display: flex !important;display: flex !important;
+  flex-wrap: wrap;
+}
+
+.btn-outline-danger {
+  margin: 0 0 0 auto;
+  float: right;
+}
+
+.warning {
+  width: 1030px;
+}
+.pull-right {
+  background: linear-gradient(transparent 70%, #FFF799 0%);
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+}
+
+.col-xs-11 {
+  margin-left: 700px;
+}
+
+.cart-backimg {
+  background-color: whitesmoke;
+}
+
+.image-link {
+  border: 3px thick double green;
+  width: 200px;
+  height: 150px;
+  margin: 20px auto 0;
+  transition-duration: 0.5s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.image-link:hover {
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.show-img {
+  background: url(white.jpeg) no-repeat no-repeat left top / 100vw auto;
+}
