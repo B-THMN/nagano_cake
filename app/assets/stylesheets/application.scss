@@ -229,9 +229,9 @@ width: 100px;
   // background-position: right 35% bottom 17%;
 // }
 
-// .row {
-  // display: block;
-// }
+.row {
+  display: block;
+}
 
 .d-inline-block {
   display: flex !important;display: flex !important;
@@ -258,32 +258,4 @@ width: 100px;
 
 .cart-backimg {
   background-color: whitesmoke;
-}
-
-.image-link {
-  border: 3px thick double green;
-  width: 200px;
-  height: 150px;
-  margin: 20px auto 0;
-  transition-duration: 0.5s;
-  width: 100%;
-  cursor: pointer;
-}
-
-.image-link:hover {
-  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
-  transform: translateY(-10px);
-  transition-duration: 0.5s;
-}
-
-.show-img {
-  background: url(white.jpeg) no-repeat no-repeat left top / 100vw auto;
-}
-
-.btn-success {
-  margin-left: 920px;
-}
-
-.btn-outline-success {
-  margin-left: 500px
 }
